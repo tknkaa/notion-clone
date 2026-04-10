@@ -7,5 +7,7 @@ DATABASE_URL=file:local.db
 DATABASE_URL=turso_url
 DATABASE_AUTH_TOKEN=turso_token
 ```
-`turso db show my-db`
-`turso db tokens create my-db`
+- `turso db show my-db`
+- `turso db tokens create my-db`
+- `pnpm drizzle-kit push --config=drizzle.config.local.ts`
+- `pnpm dlx auth@latest generate --output app/lib/db/auth-schema.ts`
