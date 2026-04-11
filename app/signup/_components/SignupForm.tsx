@@ -1,6 +1,7 @@
 "use client";
 import { GoogleSigninButton } from "@/app/_components/GoogleSigninButton";
 import { authClient } from "@/app/lib/auth-client";
+import { client } from "@/app/lib/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -20,8 +21,19 @@ export function SignupForm() {
 				onRequest: (_ctx) => {
 					setIsLoading(true);
 				},
-				onSuccess: (_ctx) => {
+				onSuccess: async (_ctx) => {
 					setIsLoading(false);
+					const res = await client.api.pages.$post({
+						json: {
+							title: "Getting Started",
+						},
+					});
+					if (!res.ok) {
+						alert("Try again");
+						return;
+					}
+					const { teamId, pageId } = await res.json();
+					console.log(teamId, pageId);
 					router.push("/dashboard");
 				},
 				onError: (ctx) => {
