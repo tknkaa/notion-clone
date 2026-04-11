@@ -34,6 +34,8 @@ export function SignupForm() {
 					}
 					const { teamId, pageId } = await res.json();
 					console.log(teamId, pageId);
+          //TODO: redirect to teamId/pageId
+          //TODO: do the same for signin
 					router.push("/dashboard");
 				},
 				onError: (ctx) => {
