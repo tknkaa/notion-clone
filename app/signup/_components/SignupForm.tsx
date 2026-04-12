@@ -11,6 +11,7 @@ export function SignupForm() {
 	const [password, setPassword] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 	const handleSubmit = async () => {
+		//TODO: 2FA
 		await authClient.signUp.email(
 			{
 				email: email,
@@ -34,9 +35,7 @@ export function SignupForm() {
 					}
 					const { teamId, pageId } = await res.json();
 					console.log(teamId, pageId);
-          //TODO: redirect to teamId/pageId
-          //TODO: do the same for signin
-					router.push("/dashboard");
+					router.push(`/${teamId}/${pageId}`);
 				},
 				onError: (ctx) => {
 					setIsLoading(false);

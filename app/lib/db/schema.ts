@@ -42,6 +42,12 @@ export const page = sqliteTable(
 		createdAt: integer("created_at", { mode: "timestamp_ms" })
 			.default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
 			.notNull(),
+		updatedAt: integer("updated_at", { mode: "timestamp_ms" })
+			.default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
+			.notNull(),
 	},
-	(table) => [index("page_teamId_idx").on(table.teamId)],
+	(table) => [
+		index("page_teamId_idx").on(table.teamId),
+		index("page_updatedAt_idx").on(table.updatedAt),
+	],
 );
