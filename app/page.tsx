@@ -1,5 +1,6 @@
 import { NavigationBar } from "./_components/NavigationBar";
 
+//TODO: if the user is already logged in, redirect to somewhere
 export default function Home() {
 	return (
 		<>
