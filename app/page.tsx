@@ -1,4 +1,4 @@
-import { NavigationBar } from "./_components/NavigationBar";
+import { NavigationBar } from "./NavigationBar";
 
 //TODO: if the user is already logged in, redirect to somewhere
 export default function Home() {
