@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { NodeViewWrapper } from "@tiptap/react";
 import type { NodeViewProps } from "@tiptap/react";
+import { typst2tex } from "tex2typst";
 import katex from "katex";
 
 export default function MathView({ node, updateAttributes }: NodeViewProps) {
@@ -38,12 +39,16 @@ export default function MathView({ node, updateAttributes }: NodeViewProps) {
 		);
 	}
 
-	const html = katex.renderToString(node.attrs.latex || "\\square", {
+	const html = katex.renderToString(typst2tex(node.attrs.latex || "square"), {
 		throwOnError: false,
 	});
 
 	return (
-		<NodeViewWrapper as="span" onClick={() => setEditing(true)}>
+		<NodeViewWrapper
+			as="span"
+			onMouseDown={(e: React.MouseEvent) => e.preventDefault()}
+			onClick={() => setEditing(true)}
+		>
 			<span dangerouslySetInnerHTML={{ __html: html }} />
 		</NodeViewWrapper>
 	);
