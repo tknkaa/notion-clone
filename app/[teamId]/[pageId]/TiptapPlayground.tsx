@@ -2,10 +2,11 @@
 
 import StarterKit from "@tiptap/starter-kit";
 import { EditorContent, useEditor } from "@tiptap/react";
+import { Math } from "./extensions";
 
 export function TiptapPlayground() {
 	const editor = useEditor({
-		extensions: [StarterKit],
+		extensions: [StarterKit, Math],
 		content:
 			"<h2>WYSIWYG Editor</h2><p>Type here and use the toolbar to format text.</p>",
 		immediatelyRender: false,
@@ -57,6 +58,14 @@ export function TiptapPlayground() {
 					type="button"
 				>
 					Bullet List
+				</button>
+				<button
+					className={`rounded-sm border px-2 py-1 text-sm ${
+						editor.isActive("bulletList") ? "bg-black text-white" : ""
+					}`}
+					onClick={() => editor.chain().focus().insertMath().run()}
+				>
+					Math
 				</button>
 			</div>
 			<EditorContent editor={editor} />

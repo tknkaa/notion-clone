@@ -13,11 +13,13 @@
 	"dependencies": {
 		"@hono/standard-validator": "^0.2.2",
 		"@libsql/client": "^0.17.2",
+		"@tiptap/core": "^3.22.4",
 		"@tiptap/react": "^3.22.4",
 		"@tiptap/starter-kit": "^3.22.4",
 		"better-auth": "^1.6.2",
 		"drizzle-orm": "^0.45.2",
 		"hono": "^4.12.12",
+		"katex": "^0.16.45",
 		"next": "16.2.3",
 		"react": "19.2.4",
 		"react-dom": "19.2.4",
@@ -26,6 +28,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.11",
 		"@tailwindcss/postcss": "^4",
+		"@types/katex": "^0.16.8",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
