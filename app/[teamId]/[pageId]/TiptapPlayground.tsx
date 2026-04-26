@@ -64,7 +64,7 @@ export function TiptapPlayground() {
 						editor.isActive("bulletList") ? "bg-black text-white" : ""
 					}`}
 					onClick={() => editor.chain().focus().insertMath().run()}
-          type="button"
+					type="button"
 				>
 					Math
 				</button>
